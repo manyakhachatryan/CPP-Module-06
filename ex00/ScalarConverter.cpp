@@ -109,8 +109,6 @@ int ScalarConverter::isInt(){
     return (1);
 }
 
-
-
 int ScalarConverter::isFloat(){
     int len = primary.length();
     int i = 0;
@@ -138,7 +136,6 @@ int ScalarConverter::isFloat(){
         std::cout<<"double: "<<primary.substr(0, len-1)<<std::endl;
     return (1);
 }
-
 
 
 int ScalarConverter::isDouble(){

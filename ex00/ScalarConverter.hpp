@@ -6,9 +6,7 @@
 
 class ScalarConverter
 {
-
     public:
-
       static void convert(char *);
       static int isChar();
       static int isInt();
