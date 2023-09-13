@@ -3,11 +3,18 @@
 
 int main(int argc, char** argv) 
 {
-    if(argc == 2)
+    try
     {
-        ScalarConverter::convert(argv[1]);
-    } 
-    else 
-        std::cout<<"Must be one argument"<<std::endl;
-    return 0;
+    if(argc == 2)
+        {
+            ScalarConverter::convert(argv[1]);
+        } 
+        else 
+            std::cout<<"Must be one argument"<<std::endl;
+        return 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }    
 }
