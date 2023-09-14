@@ -109,20 +109,21 @@ int ScalarConverter::isInt(){
     return (1);
 }
 
-int ScalarConverter::isFloat(){
+int ScalarConverter::isFloat()
+{
     int len = primary.length();
     int i = 0;
     int flag = 0;
-    if(primary[i]=='-' || primary[i]=='+')
+    if(primary[i] == '-' || primary[i] == '+')
         i++;
     for(i = 1; i<len-1; i++)
     {
-        if((isdigit(primary[i])==0 && primary[i]!='.') || (primary[i]=='.'  && flag == 1))
+        if((isdigit(primary[i]) == 0 && primary[i]!='.') || (primary[i]=='.'  && flag == 1) || primary[i] != 'f')
             return (0);
         if (primary[i] == '.')
-            flag=1;
+            flag = 1;
     }
-    if(primary[len-1]!='f')
+    if(primary[len-1] != 'f')
         return (0);
     int a = static_cast<int>(d);
     if(a < -2147483647  || a > 2147483647)
@@ -142,14 +143,14 @@ int ScalarConverter::isDouble(){
     int len = primary.length();
     int i = 0;
     int flag = 0;
-    if(primary[i]=='-' || primary[i]=='+')
+    if(primary[i] == '-' || primary[i] == '+')
         i++;
-    for(i = 1; i<len; i++)
+    for(i = 1; i < len; i++)
     {
-        if((isdigit(primary[i])==0 && primary[i]!='.') || (primary[i]=='.'  && flag == 1))
+        if((isdigit(primary[i]) == 0 && primary[i] != '.') || (primary[i] == '.'  && flag == 1) || primary[i] != 'f')
             return (0);
         if (primary[i] == '.')
-            flag=1;
+            flag = 1;
     }
     int a = static_cast<int>(d);
     if(a < -2147483647  || a > 2147483647)

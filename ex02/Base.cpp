@@ -22,11 +22,11 @@ void identify(Base* p)
     A* a = dynamic_cast<A*>(p);
     B* b = dynamic_cast<B*>(p);
     C* c = dynamic_cast<C*>(p);
-    if (a != nullptr)
+    if (a != NULL)
         std::cout << "The actual type of the object is 'A'" << std::endl;
-    else if(b != nullptr)
+    else if(b != NULL)
         std::cout << "The actual type of the object is 'B'" << std::endl;
-    else if(c != nullptr)
+    else if(c != NULL)
         std::cout << "The actual type of the object is 'C'" << std::endl;
 }
 
