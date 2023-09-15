@@ -88,10 +88,10 @@ int ScalarConverter::isChar(){
 
 int ScalarConverter::isInt(){
     int len = primary.length();
-    int i = 0;
-    if(primary[i]=='-' || primary[i]=='+')
-        i++;
-    for(i = 1; i<len; i++)
+    int j = 0;
+    if(primary[j]=='-' || primary[j]=='+')
+        j++;
+    for(int i = j; i<len; i++)
     {
         if(isdigit(primary[i])==0)
             return (0);
@@ -109,21 +109,20 @@ int ScalarConverter::isInt(){
     return (1);
 }
 
-int ScalarConverter::isFloat()
-{
+int ScalarConverter::isFloat(){
     int len = primary.length();
-    int i = 0;
+    int j = 0;
     int flag = 0;
-    if(primary[i] == '-' || primary[i] == '+')
-        i++;
-    for(i = 1; i<len-1; i++)
+    if(primary[j]=='-' || primary[j]=='+')
+        j++;
+    for(int i = j; i<len-1; i++)
     {
-        if((isdigit(primary[i]) == 0 && primary[i]!='.') || (primary[i]=='.'  && flag == 1) || primary[i] != 'f')
+        if((isdigit(primary[i])==0 && primary[i]!='.') || (primary[i]=='.'  && flag == 1))
             return (0);
         if (primary[i] == '.')
-            flag = 1;
+            flag=1;
     }
-    if(primary[len-1] != 'f')
+    if(primary[len-1]!='f' || (primary[len-1] =='f' && primary[len-2] =='.' ))
         return (0);
     int a = static_cast<int>(d);
     if(a < -2147483647  || a > 2147483647)
@@ -141,16 +140,16 @@ int ScalarConverter::isFloat()
 
 int ScalarConverter::isDouble(){
     int len = primary.length();
-    int i = 0;
+    int j = 0;
     int flag = 0;
-    if(primary[i] == '-' || primary[i] == '+')
-        i++;
-    for(i = 1; i < len; i++)
+    if(primary[j]=='-' || primary[j]=='+')
+        j++;
+    for(int i = j; i<len; i++)
     {
-        if((isdigit(primary[i]) == 0 && primary[i] != '.') || (primary[i] == '.'  && flag == 1) || primary[i] != 'f')
+        if((isdigit(primary[i])==0 && primary[i]!='.') || (primary[i]=='.'  && flag == 1))
             return (0);
         if (primary[i] == '.')
-            flag = 1;
+            flag=1;
     }
     int a = static_cast<int>(d);
     if(a < -2147483647  || a > 2147483647)
